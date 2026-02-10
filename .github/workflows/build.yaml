@@ -31,9 +31,10 @@ jobs:
           name: netcoredbg-win-x64
           path: |
             build/src/Release/netcoredbg.exe
-            build/src/Release/dbgshim.dll
-            build/src/Release/ManagedPart.dll
-            build/src/Release/Microsoft.CodeAnalysis.CSharp.Scripting.dll
-            build/src/Release/Microsoft.CodeAnalysis.CSharp.dll
-            build/src/Release/Microsoft.CodeAnalysis.Scripting.dll
-            build/src/Release/Microsoft.CodeAnalysis.dll
+            build/src/dbgshim.dll
+            build/src/ManagedPart.dll
+            build/src/Microsoft.CodeAnalysis.CSharp.Scripting.dll
+            build/src/Microsoft.CodeAnalysis.CSharp.dll
+            build/src/Microsoft.CodeAnalysis.Scripting.dll
+            build/src/Microsoft.CodeAnalysis.dll
+
