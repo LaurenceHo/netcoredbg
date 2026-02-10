@@ -5,8 +5,8 @@ on:
   push:
 
 jobs:
-  windows-aarch64:
-    name: windows aarch64
+  windows-x64:
+    name: windows x64
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,21 +17,18 @@ jobs:
       - name: Find .NET SDK path
         shell: pwsh
         run: |
-          dotnet --info
           $dotnetRoot = (Get-Command dotnet).Source | Split-Path
           echo "DOTNET_DIR=$dotnetRoot" >> $env:GITHUB_ENV
-          echo "Dotnet root: $dotnetRoot"
-          ls $dotnetRoot
       - name: Build
         shell: cmd
         run: |
           mkdir build
           cd build
-          cmake .. -A ARM64 -DDOTNET_DIR="%DOTNET_DIR%"
+          cmake .. -DDOTNET_DIR="%DOTNET_DIR%"
           cmake --build . --config Release
       - uses: actions/upload-artifact@v4
         with:
-          name: netcoredbg-win-arm64
+          name: netcoredbg-win-x64
           path: |
             build/src/Release/netcoredbg.exe
             build/src/Release/dbgshim.dll
